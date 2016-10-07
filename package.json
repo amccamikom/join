@@ -1,0 +1,13 @@
+{
+  "name": "join-amcc",
+  "version": "1.0.0",
+  "description": "Simple app for new member registration at AMCC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rizqy H.",
+  "license": "ISC",
+  "dependencies": {
+    "jquery.maskedinput": "^1.4.1"
+  }
+}
