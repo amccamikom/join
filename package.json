@@ -1,12 +1,12 @@
 {
   "name": "join-amcc",
   "version": "1.0.0",
-  "description": "Simple app for new member registration at AMCC",
+  "description": "Aplikasi sederhana untuk pendaftaran online member baru AMCC.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rizqy H.",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "datatables.net": "^1.10.12",
     "datatables.net-dt": "^1.10.12",
