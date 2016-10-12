@@ -9,9 +9,13 @@ class HomeAction extends BaseAction
 
     public function home(Request $request, Response $response)
     {
-        //$this->logger->info("Home page action dispatched");
+        $csrf = [
+            'name'  => $request->getAttribute('csrf_name'),
+            'value' => $request->getAttribute('csrf_value')
+        ];
 
-        $this->view->render($response, 'home');
+        $this->view->render($response, 'home', compact('csrf'));
+
         return $response;
     }
 
@@ -32,7 +36,13 @@ class HomeAction extends BaseAction
         ]);
 
         if (!$id) {
+            $this->flash->addMessage('error', 'Terjadi kesalahan saat menyimpan data.');
 
+            return $response->withStatus(500)->withHeader('Location', $this->router->pathFor('home'));
         }
+
+        $this->flash->addMessage('success', 'Terima kasih telah mendaftar. Pembayaran dapat dilakukan di Aula BSC. :)');
+
+        return $response->withStatus(201)->withHeader('Location', $this->router->pathFor('home'));
     }
 }

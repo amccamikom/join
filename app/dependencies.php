@@ -25,7 +25,12 @@ $container['db'] = function ($c) {
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Blade(
         $c['settings']['view']['template_path'],
-        $c['settings']['view']['cache_path']
+        $c['settings']['view']['cache_path'],
+        null,
+        [
+            'flash' => $c->get('flash'),
+            'helper' => $c->get('helper')
+        ]
     );
 
     return $view;
@@ -34,6 +39,11 @@ $container['view'] = function ($c) {
 // Flash messages
 $container['flash'] = function ($c) {
     return new Slim\Flash\Messages;
+};
+
+// CSRF protection
+$container['csrf'] = function ($c) {
+    return new Slim\Csrf\Guard;
 };
 
 // -----------------------------------------------------------------------------
@@ -52,6 +62,22 @@ $container['logger'] = function ($c) {
 // -----------------------------------------------------------------------------
 // Action factories
 // -----------------------------------------------------------------------------
+
+$container['helper'] = function ($c) {
+    return new App\Helper($c);
+};
+
+$container[App\Middlewares\AuthMiddleware::class] = function ($c) {
+    return new App\Middlewares\AuthMiddleware($c);
+};
+
+$container[App\Middlewares\RedirectIfAuthedMiddleware::class] = function ($c) {
+    return new App\Middlewares\RedirectIfAuthedMiddleware($c);
+};
+
+$container[App\Middlewares\CheckRegisteredMiddleware::class] = function ($c) {
+    return new App\Middlewares\CheckRegisteredMiddleware($c);
+};
 
 // $container[App\Action\HomeAction::class] = function ($c) {
 //     return new App\Action\HomeAction($c->get('view'), $c->get('logger'));

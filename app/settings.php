@@ -1,9 +1,11 @@
 <?php
 return [
     'settings' => [
+        'base_url' => getenv('APP_URL'),
+
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
-        'displayErrorDetails' => true,
+        'displayErrorDetails' => getenv('DEBUG'),
 
         // View settings
         'view' => [

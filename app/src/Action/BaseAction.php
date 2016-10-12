@@ -2,19 +2,25 @@
 namespace App\Action;
 
 use Interop\Container\ContainerInterface;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 
 class BaseAction
 {
+    protected $csrf;
     protected $db;
+    protected $flash;
     protected $logger;
+    protected $router;
     protected $view;
 
     public function __construct(ContainerInterface $ci)
     {
-        $this->db = $ci->get('db');
+        $this->csrf   = $ci->get('csrf');
+        $this->db     = $ci->get('db');
+        $this->flash  = $ci->get('flash');
         $this->logger = $ci->get('logger');
-        $this->view = $ci->get('view');
+        $this->router = $ci->get('router');
+        $this->view   = $ci->get('view');
     }
 }
