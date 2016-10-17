@@ -35,7 +35,9 @@ class HomeAction extends BaseAction
             'status'       => 0
         ]);
 
-        if (!$id) {
+        $inserted = $this->db->get('member', 'nim', ['nim' => $data['nim']]);
+
+        if (empty($inserted)) {
             $this->flash->addMessage('error', 'Terjadi kesalahan saat menyimpan data.');
 
             return $response->withStatus(500)->withHeader('Location', $this->router->pathFor('home'));
@@ -43,6 +45,6 @@ class HomeAction extends BaseAction
 
         $this->flash->addMessage('success', 'Terima kasih telah mendaftar. Pembayaran dapat dilakukan di Aula BSC. :)');
 
-        return $response->withStatus(201)->withHeader('Location', $this->router->pathFor('home'));
+        return $response->withStatus(200)->withHeader('Location', $this->router->pathFor('home'));
     }
 }
