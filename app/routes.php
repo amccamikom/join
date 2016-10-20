@@ -7,6 +7,7 @@ $app->group('/admin', function () {
 	$this->post('/logout', 'App\Action\AdminAction:postLogout')->setName('admin.logout');
 
     $this->post('/members', 'App\Action\MemberAction:getData')->setName('member.data');
+    $this->post('/members/edit', 'App\Action\MemberAction:editData')->setName('member.edit');
 
 	$this->get('/', 'App\Action\AdminAction:home')->setName('admin')->add(App\Middlewares\AuthMiddleware::class);
 });

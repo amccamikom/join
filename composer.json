@@ -23,6 +23,7 @@
         "vlucas/phpdotenv": "^2.4",
         "catfan/Medoo": "^1.1",
         "hiropeke/slim-blade-view": "^0.1.1",
-        "slim/csrf": "^0.7.0"
+        "slim/csrf": "^0.7.0",
+        "ozdemir/datatables": "^1.5"
     }
 }

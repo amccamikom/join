@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b75dea83ea5cd8a39c621a491dbd79fb",
-    "content-hash": "1d1613f23468a5d21a3e65524002abf3",
+    "hash": "390aadb74c4fc9598947b114f1dd4854",
+    "content-hash": "ffe545b884783c82720a8af92d5c449a",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -611,6 +611,42 @@
                 "routing"
             ],
             "time": "2016-06-12 19:08:51"
+        },
+        {
+            "name": "ozdemir/datatables",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/n1crack/datatables.git",
+                "reference": "f205e474fd9143588bae47217f976fa2acde3370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/n1crack/datatables/zipball/f205e474fd9143588bae47217f976fa2acde3370",
+                "reference": "f205e474fd9143588bae47217f976fa2acde3370",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ozdemir\\Datatables\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yusuf Özdemir",
+                    "email": "yusuf@ozdemir.be"
+                }
+            ],
+            "description": "Handles server-side processing for Datatables.",
+            "time": "2016-10-11 18:11:55"
         },
         {
             "name": "paragonie/random_compat",
