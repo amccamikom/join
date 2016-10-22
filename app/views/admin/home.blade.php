@@ -75,6 +75,7 @@
 @push('scripts')
 <script>
   $(document).ready(function() {
+    // Initializing DataTables
     var memberTable = $('#members-table').DataTable( {
         "processing": true,
         "serverSide": true,
@@ -105,6 +106,7 @@
         ]
     } );
 
+    // Show edit form in the modal and handle the data
     $('#edit-member-modal').on('show.bs.modal', function (e) {
       var btn   = $(e.relatedTarget),
           modal = $(this);
@@ -135,6 +137,25 @@
             memberTable.ajax.reload();
           });
       });
+    });
+
+    // Handler for deleting a member
+    $('#members-table').on('click', '.btn-delete-member', function(e) {
+      e.preventDefault();
+      var $btn = $(this),
+          nama = $btn.data('nama'),
+          nim  = $btn.data('nim');
+
+      if (confirm("Hapus member ini?\n\n" + nama + "\n" + nim)) {
+        $.post('{{ $helper->route('member.delete') }}', {nim: nim})
+          .done(function(response) {
+            alert(response.message);
+            memberTable.ajax.reload();
+          })
+          .fail(function(response) {
+            alert("Terjadi kesalahan:\n\n" + response.message);
+          });
+      }
     });
   } );
 </script>

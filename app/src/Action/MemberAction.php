@@ -33,7 +33,7 @@ class MemberAction extends BaseAction
 
         $dt->edit('aksi', function($row) {
             $editBtn = '<button type="button" class="btn btn-info btn-sm" data-nim="'.$row['nim'].'" data-status="'.$row['status'].'" data-reg="'.$row['noReg'].'" data-nama="'.$row['nama'].'" data-toggle="modal" data-target="#edit-member-modal"><i class="ion-edit"></i></button>';
-            $deleteBtn = '<button type="button" class="btn btn-danger btn-sm" data-nim="'.$row['nim'].'"><i class="ion-trash-a"></i></button>';
+            $deleteBtn = '<button type="button" class="btn btn-danger btn-sm btn-delete-member" data-nim="'.$row['nim'].'" data-nama="'.$row['nama'].'"><i class="ion-trash-a"></i></button>';
 
             return "$editBtn $deleteBtn";
         });
@@ -62,6 +62,27 @@ class MemberAction extends BaseAction
         return $response->withJson([
             'status' => 'ok',
             'message' => 'Data member berhasil diupdate.'
+        ]);
+    }
+
+    public function deleteData(Request $request, Response $response)
+    {
+        $data = $request->getParsedBody();
+
+        $member = $this->db->get('member', '*', ['nim' => $data['nim']]);
+
+        if (!$member) {
+            return $response->withJson([
+                'status' => 'error',
+                'message' => 'Data tidak ditemukan.'
+            ], 404);
+        }
+
+        $this->db->delete('member', ['nim' => $data['nim']]);
+
+        return $response->withJson([
+            'status' => 'ok',
+            'message' => 'Data member berhasil dihapus.'
         ]);
     }
 }

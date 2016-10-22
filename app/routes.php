@@ -8,6 +8,7 @@ $app->group('/admin', function () {
 
     $this->post('/members', 'App\Action\MemberAction:getData')->setName('member.data');
     $this->post('/members/edit', 'App\Action\MemberAction:editData')->setName('member.edit');
+    $this->post('/members/delete', 'App\Action\MemberAction:deleteData')->setName('member.delete');
 
 	$this->get('/', 'App\Action\AdminAction:home')->setName('admin')->add(App\Middlewares\AuthMiddleware::class);
 });
