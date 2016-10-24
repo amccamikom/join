@@ -14,6 +14,22 @@ class AdminAction extends BaseAction
         return $response;
     }
 
+    public function stats(Request $request, Response $response)
+    {
+        $stats['member'] = $this->db->select('member', '*');
+        $stats['registered'] = $this->db->count('member');
+        $stats['paid']       = $this->db->count('member', ['status' => 1]);
+        $stats['unpaid']     = $this->db->count('member', ['status' => 0]);
+
+        foreach (['web', 'desktop', 'hardware', 'network'] as $divisi) {
+            $stats['divisions'][$divisi] = $this->db->count('member', ['divisi' => $divisi]);
+        }
+
+        $this->view->render($response, 'admin.stats', compact('stats'));
+
+        return $response;
+    }
+
     public function getLogin(Request $request, Response $response)
     {
         $csrf = [

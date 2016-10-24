@@ -14,7 +14,7 @@
   @stack('styles')
 </head>
 <body>
-  <nav class="navbar navbar-full navbar-dark bg-primary">
+  <nav class="navbar navbar-full navbar-dark bg-primary main-nav">
     <div class="container">
       <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
         &#9776;
@@ -22,8 +22,8 @@
       <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
       <a class="navbar-brand" href="{{ $helper->route('admin') }}">Join AMCC</a>
         <ul class="nav navbar-nav">
-          <li class="nav-item active"><a class="nav-link" href="{{ $helper->route('admin') }}">Member <span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin') }}">Member <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin.stats') }}">Statistik</a></li>
         </ul>
         <form action="{{ $helper->route('admin.logout') }}" method="post" class="form-inline pull-sm-right">
           <p class="form-control-static">me@amcc.or.id</p>
@@ -40,6 +40,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
   <script src="{{ $helper->base_url('/assets/js/admin.js') }}"></script>
+
+  <script>
+    (function($) {
+      $('.main-nav a[href="' + location.pathname + '"]').parent().addClass('active');
+    })(jQuery);
+  </script>
 
   @stack('scripts')
 </body>

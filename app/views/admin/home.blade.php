@@ -4,6 +4,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
+      <a href="{{ $helper->route('admin.export') }}" class="btn btn-success">Export data</a>
+
       <table id="members-table" class="table table-striped table-hover" width="100%">
         <thead class="thead-inverse">
           <tr>

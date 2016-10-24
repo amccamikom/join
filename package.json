@@ -8,6 +8,7 @@
   "author": "Rizqy H.",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^2.3.0",
     "datatables.net": "^1.10.12",
     "datatables.net-dt": "^1.10.12",
     "jquery.maskedinput": "^1.4.1",

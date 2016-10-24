@@ -10,6 +10,8 @@ $app->group('/admin', function () {
     $this->post('/members/edit', 'App\Action\MemberAction:editData')->setName('member.edit');
     $this->post('/members/delete', 'App\Action\MemberAction:deleteData')->setName('member.delete');
 
+    $this->get('/stats', 'App\Action\AdminAction:stats')->setName('admin.stats')->add(App\Middlewares\AuthMiddleware::class);
+    $this->get('/export', 'App\Action\ExportAction:export')->setName('admin.export')->add(App\Middlewares\AuthMiddleware::class);
 	$this->get('/', 'App\Action\AdminAction:home')->setName('admin')->add(App\Middlewares\AuthMiddleware::class);
 });
 

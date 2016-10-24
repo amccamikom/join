@@ -18,8 +18,9 @@ var scripts = [
 ];
 
 var adminScripts = [
-  'node_modules/parsleyjs/dist/parsley.js',
-  'node_modules/parsleyjs/dist/i18n/id.js',
+  //'node_modules/parsleyjs/dist/parsley.js',
+  //'node_modules/parsleyjs/dist/i18n/id.js',
+  'node_modules/chart.js/dist/Chart.js',
   'node_modules/datatables.net/js/jquery.dataTables.js',
   'public/assets/vendor/datatables/dataTables.bootstrap.js'
 ];
