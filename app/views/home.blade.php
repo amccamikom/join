@@ -43,6 +43,10 @@
               </div>
             </div> --}}
 
+            <div class="alert alert-info" role="alert">
+              <p><i class="ion-ios-information"></i> Pendaftaran online AMCC dibuka sampai <b>29 Oktober 2016</b>. Pembayaran langsung di Sekre AMCC, Gedung BSC lt. 3. CP: <b>085329135757</b></p>
+            </div>
+
             @include('partials.notifs')
 
             <div class="form-group">
