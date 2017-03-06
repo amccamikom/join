@@ -1,6 +1,3 @@
-node_modules/
-vendor/*
-log/*
-cache/*
-
+/node_modules
+/vendor
 .env
