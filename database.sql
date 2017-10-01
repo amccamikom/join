@@ -20,4 +20,12 @@ CREATE TABLE `member` (
   PRIMARY KEY (`nim`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `settings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `value` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 INSERT INTO `admin` (`id`, `email`, `password`, `created_at`) VALUES (NULL, 'admin@amcc.or.id', '$2y$10$vahBv3GevBuExSoYwH5Ps.UszOT4fW4k1Z2hBEwi8.sIwk88Fv8wC', NOW());

@@ -24,6 +24,7 @@
         <ul class="nav navbar-nav">
           <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin') }}">Member <span class="sr-only">(current)</span></a></li>
           <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin.stats') }}">Statistik</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin.settings') }}">Pengaturan</a></li>
         </ul>
         <form action="{{ $helper->route('admin.logout') }}" method="post" class="form-inline pull-sm-right">
           <p class="form-control-static">me@amcc.or.id</p>
