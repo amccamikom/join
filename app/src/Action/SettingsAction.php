@@ -8,12 +8,9 @@ class SettingsAction extends BaseAction
 {
     public function getSettings(Request $request, Response $response)
     {
-        $csrf = [
-            'name'  => $request->getAttribute('csrf_name'),
-            'value' => $request->getAttribute('csrf_value')
-        ];
+        $settings = $this->getAllSettings();
 
-        $this->view->render($response, 'admin.settings', compact('csrf'));
+        $this->view->render($response, 'admin.settings', compact('settings'));
 
         return $response;
     }
@@ -22,6 +19,31 @@ class SettingsAction extends BaseAction
     {
         $data = $request->getParsedBody();
 
+        $this->saveAllSettings($data);
+
         return $response->withStatus(200)->withHeader('Location', $this->router->pathFor('admin.settings'));
+    }
+
+    public function getAllSettings()
+    {
+        $settings = $this->db->select('settings', '*');
+        $mappedSettings = [];
+
+        foreach ($settings as $setting) {
+            $mappedSettings[$setting['name']] = $setting['value'];
+        }
+
+        return $mappedSettings;
+    }
+
+    public function saveAllSettings($settings)
+    {
+        foreach ($settings as $key => $value) {
+            $updated = $this->db->update('settings', ['value' => $value], ['name' => $key]);
+
+            if (!$updated) {
+                $this->db->insert('settings', ['name' => $key, 'value' => $value]);
+            }
+        }
     }
 }

@@ -45,6 +45,7 @@
   <script>
     (function($) {
       $('.main-nav a[href="' + location.pathname + '"]').parent().addClass('active');
+      $('.settings-nav a[href="' + location.pathname + '"]').addClass('active');
     })(jQuery);
   </script>
 
