@@ -11,8 +11,12 @@ require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 // Load up the environment configs
-$dotenv = new \Dotenv\Dotenv(__DIR__.'/..');
-$dotenv->load();
+try {
+    $dotenv = new \Dotenv\Dotenv(__DIR__.'/..');
+    $dotenv->load();
+} catch (Exception $e) {
+
+}
 
 // Instantiate the app
 $settings = require __DIR__ . '/../app/settings.php';
