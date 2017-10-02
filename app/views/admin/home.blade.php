@@ -4,8 +4,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <a href="{{ $helper->route('admin.export') }}" class="btn btn-success">Export data</a>
-
       <table id="members-table" class="table table-striped table-hover" width="100%">
         <thead class="thead-inverse">
           <tr>
@@ -89,11 +87,12 @@
           {'data': 'nim'},
           {'data': 'nama'},
           {'data': 'email'},
-          {'data': 'noHp'},
+          {'data': 'noHp', 'sortable': false, 'searchable': false},
           {'data': 'divisi'},
           {'data': 'noReg'},
           {
             'data': 'status',
+            'searchable': false,
             'render': function(data, type, row, meta) {
               if (type === 'display') {
                 return parseInt(data)
@@ -104,9 +103,12 @@
               return data;
             }
           },
-          {'data': 'aksi'},
+          {'data': 'aksi', 'sortable': false, 'searchable': false},
         ]
     } );
+
+    // Append export button
+    $('#members-table_filter').append('<a href="{{ $helper->route('admin.export') }}" class="btn btn-success btn-sm ml-3 align-top">Export data</a>');
 
     // Show edit form in the modal and handle the data
     $('#edit-member-modal').on('show.bs.modal', function (e) {
