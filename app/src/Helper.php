@@ -24,4 +24,15 @@ class Helper
     {
         return $this->ci->router->pathFor($route);
     }
+
+    public function currentUser()
+    {
+        if (!$_SESSION['authenticated']) {
+            return null;
+        }
+
+        $user = $this->ci->db->get('admin', ['id', 'email'], ['id' => $_SESSION['admin_id']]);
+
+        return $user;
+    }
 }

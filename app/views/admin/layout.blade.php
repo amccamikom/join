@@ -26,11 +26,17 @@
           <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin.stats') }}">Statistik</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ $helper->route('admin.settings') }}">Pengaturan</a></li>
         </ul>
-        <form action="{{ $helper->route('admin.logout') }}" method="post" class="form-inline">
-          {{-- <span class="navbar-text">me@amcc.or.id</p> --}}
-          {{-- <button class="btn btn-warning" type="submit">Keluar</button> --}}
-          <button class="btn btn-sm align-middle btn-outline-secondary" type="button">Smaller button</button>
-        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+              <em>{{ $helper->currentUser()['email'] }}</em>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()">Keluar</a>
+            </div>
+          </li>
+        </ul>
+        <form action="{{ $helper->route('admin.logout') }}" method="post" id="logout-form" class="d-none"></form>
       </div>
     </div>
   </nav>
