@@ -61,7 +61,6 @@ body {
     font-size: 48px;
     color: #999; }
   .user-image .ion-load-c::before {
-    -webkit-animation: spin 1s infinite linear;
     animation: spin 1s infinite linear; }
 
 .footer-sm {
@@ -101,11 +100,6 @@ textarea.parsley-error {
 .parsley-errors-list.filled {
   opacity: 1; }
 
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg); } }
-
 @keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
