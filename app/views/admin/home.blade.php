@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col">
       <a href="{{ $helper->route('admin.export') }}" class="btn btn-success">Export data</a>
 
       <table id="members-table" class="table table-striped table-hover" width="100%">
@@ -31,29 +31,29 @@
         <input type="hidden" name="nim">
 
         <div class="modal-header">
+          <h5 class="modal-title">Edit Member</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">Edit Member</h4>
         </div>
         <div class="modal-body">
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nama/NIM</label>
-            <div class="col-sm-10">
+            <label class="col-sm-3 col-form-label">Nama/NIM</label>
+            <div class="col-sm-9">
               <p class="form-control-static mb-0">
                 <b class="member-nama"></b> / <b class="member-nim"></b>
               </p>
             </div>
           </div>
           <div class="form-group row">
-            <label for="noReg" class="col-sm-2 col-control-label">No. Reg</label>
+            <label for="noReg" class="col-sm-3 col-control-label">No. Reg</label>
             <div class="col-sm-3">
               <input type="text" class="form-control member-reg" id="noReg" name="noReg">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-2">Status</label>
-            <div class="col-sm-10">
+            <label class="col-sm-3">Status</label>
+            <div class="col-sm-9">
               <div class="form-check">
                 <label class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input member-status" name="status" value="1">
