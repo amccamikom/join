@@ -43,9 +43,11 @@
               </div>
             </div> --}}
 
-            <div class="alert alert-info" role="alert">
-              <p><i class="ion-ios-information"></i> Pendaftaran online AMCC dibuka sampai <b>29 Oktober 2016</b>. Pembayaran langsung di Sekre AMCC, Gedung BSC lt. 3. CP: <b>085329135757</b></p>
-            </div>
+            @if ($helper->getSettings()['announcement'])
+              <div class="alert alert-info" role="alert">
+                {!! $helper->getSettings()['announcement'] !!}
+              </div>
+            @endif
 
             @include('partials.notifs')
 
@@ -97,6 +99,7 @@
                   <option value="">- Pilih Divisi -</option>
                   <option value="web">Web Programming</option>
                   <option value="desktop">Desktop Programming</option>
+                  <option value="mobile">Mobile Programming</option>
                   <option value="hardware">Hardware Software</option>
                   <option value="network">Computer Network</option>
                 </select>
