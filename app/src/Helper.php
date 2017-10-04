@@ -35,4 +35,16 @@ class Helper
 
         return $user;
     }
+
+    public function getSettings()
+    {
+        $settings = $this->ci->db->select('settings', '*');
+        $mappedSettings = [];
+
+        foreach ($settings as $setting) {
+            $mappedSettings[$setting['name']] = $setting['value'];
+        }
+
+        return $mappedSettings;
+    }
 }

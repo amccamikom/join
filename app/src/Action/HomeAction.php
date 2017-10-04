@@ -43,7 +43,7 @@ class HomeAction extends BaseAction
             return $response->withStatus(500)->withHeader('Location', $this->router->pathFor('home'));
         }
 
-        $this->flash->addMessage('success', 'Terima kasih telah mendaftar. Pembayaran dapat dilakukan di Aula BSC. :)');
+        $this->flash->addMessage('success', $this->helper->getSettings()['success_message']);
 
         return $response->withStatus(200)->withHeader('Location', $this->router->pathFor('home'));
     }
