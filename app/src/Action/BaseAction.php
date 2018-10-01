@@ -18,7 +18,7 @@ class BaseAction
 
     public function __construct(ContainerInterface $ci)
     {
-        $this->ci   = $ci->get('ci');
+        $this->ci     = $ci;
         $this->csrf   = $ci->get('csrf');
         $this->db     = $ci->get('db');
         $this->flash  = $ci->get('flash');
