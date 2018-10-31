@@ -21,7 +21,7 @@ class HomeAction extends BaseAction
 
     public function register(Request $request, Response $response)
     {
-        $data = $request->getParsedBody();
+        $data = array_map('htmlspecialchars', $request->getParsedBody());
 
         $id = $this->db->insert('member', [
             'nim'          => $data['nim'],
